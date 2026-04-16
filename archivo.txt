@@ -1,1 +1,3 @@
 *desarrollo de codigo*
+kebab-case
+wakala
