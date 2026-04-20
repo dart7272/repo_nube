@@ -1,5 +1,5 @@
 #EJERCICIO 9 DE LISTAS Y TUPLAS
-palabra = input(f"introduzca la palabra: ")
+palabra = input(f"..............................\nintroduzca la palabra: ")
 pal = palabra.upper()
 a =0
 e =0
