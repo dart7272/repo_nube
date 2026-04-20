@@ -64,100 +64,136 @@ limpiar_pantalla()
 # print ("lista de compras: \n")        
 # for articulo, precio in cesta.items():
 #     print (f{articulo}---------{precio}$\n")
-def registrar_cli (dic_clientes, dic_preferentes):
-    limpiar_pantalla()
-    cedula = input("cedula de cliente: ")
-    nombre = input("nombre del cliente: ")
-    direccion = input("direccion del cliente: ")
-    telefono = input("telefono del cliente: ")
-    correo = input("correo del cliente: ")
-    p = input("el cliente es preferente? (s/n): ")
-    if p == "s" or p == "S":
-        preferente = True
-    elif p == "n" or p == "N": 
-        preferente = False
-    datos = {
-        "nombre" : nombre,
-        "direccion" : direccion,
-        "telefono" : telefono,
-        "correo" : correo,
-        "preferente" : preferente
-    }
-    dic_clientes[cedula] = datos
-    if preferente :
-        dic_preferentes[cedula] = datos
-    input ("cliente registrado con exito!")
-def eliminar_cli(dic_clientes, dic_preferentes):
-    limpiar_pantalla()
-    c = input("cedula del cliente a eliminar: ")
-    limpiar_pantalla()
-    if c in dic_clientes:
-                del dic_clientes[c]
-                del dic_preferentes[c]
-                print("el cliente fue eliminado con exito!")
-def mostrar_cli(dic_clientes):
-    limpiar_pantalla()
-    cedula = input("Digite la cedula del cliente que desea buscar: ")
-    if cedula in dic_clientes:
-        datos = dic_clientes[cedula]
-        print("=== DATOS DEL CLIENTE ===")
-        print(f"Cédula:    {cedula}")
-        print(f"Nombre:    {datos['nombre']}")
-        print(f"Dirección: {datos['direccion']}")
-        print(f"Teléfono:  {datos['telefono']}")
-        print(f"Correo:    {datos['correo']}")
-        print(f"Preferente: {'Sí' if datos['preferente'] else 'No'}")
-    else:
-        print(f"Error: El cliente con cédula {cedula} no está registrado.")
+# def registrar_cli (dic_clientes, dic_preferentes):
+#     limpiar_pantalla()
+#     cedula = input("cedula de cliente: ")
+#     nombre = input("nombre del cliente: ")
+#     direccion = input("direccion del cliente: ")
+#     telefono = input("telefono del cliente: ")
+#     correo = input("correo del cliente: ")
+#     p = input("el cliente es preferente? (s/n): ")
+#     if p == "s" or p == "S":
+#         preferente = True
+#     elif p == "n" or p == "N": 
+#         preferente = False
+#     datos = {
+#         "nombre" : nombre,
+#         "direccion" : direccion,
+#         "telefono" : telefono,
+#         "correo" : correo,
+#         "preferente" : preferente
+#     }
+#     dic_clientes[cedula] = datos
+#     if preferente :
+#         dic_preferentes[cedula] = datos
+#     input ("cliente registrado con exito!")
+# def eliminar_cli(dic_clientes, dic_preferentes):
+#     limpiar_pantalla()
+#     c = input("cedula del cliente a eliminar: ")
+#     limpiar_pantalla()
+#     if c in dic_clientes:
+#                 del dic_clientes[c]
+#                 del dic_preferentes[c]
+#                 print("el cliente fue eliminado con exito!")
+# def mostrar_cli(dic_clientes):
+#     limpiar_pantalla()
+#     cedula = input("Digite la cedula del cliente que desea buscar: ")
+#     if cedula in dic_clientes:
+#         datos = dic_clientes[cedula]
+#         print("=== DATOS DEL CLIENTE ===")
+#         print(f"Cédula:    {cedula}")
+#         print(f"Nombre:    {datos['nombre']}")
+#         print(f"Dirección: {datos['direccion']}")
+#         print(f"Teléfono:  {datos['telefono']}")
+#         print(f"Correo:    {datos['correo']}")
+#         print(f"Preferente: {'Sí' if datos['preferente'] else 'No'}")
+#     else:
+#         print(f"Error: El cliente con cédula {cedula} no está registrado.")
     
-    input("\nPresione Enter para continuar...")
+#     input("\nPresione Enter para continuar...")
 
-def listar_cli(dic_clientes):
-    limpiar_pantalla()
-    if not dic_clientes:
-        print("No hay clientes registrados actualmente.")
-    else:
-        print("=== LISTADO DE CLIENTES ===")
-        for cedula, datos in dic_clientes.items():
-            pref = "Sí" if datos["preferente"] else "No"
-            print(f"C.I: {cedula} | Nombre: {datos['nombre']} | Telefono: {datos['telefono']}| Preferente: {pref}")
-    input("\nPresione Enter para continuar...")
-def listar_cli_pref(dic_preferentes):
-    limpiar_pantalla()
-    if not dic_preferentes:
-        print("No hay clientes preferentes registrados actualmente.")
-    else:
-        print("=== LISTADO DE CLIENTES PREFERENTES ===")
-        for cedula, datos in dic_preferentes.items():
-            print(f"C.I: {cedula} | Nombre: {datos['nombre']} | Telefono: {datos['telefono']}")
-    input("\nPresione Enter para continuar...")
-def menu(fin):
-    while fin != True:
-        limpiar_pantalla()
-        op = int(input("opcion 1-------Registrar un cliente\nopcion 2-------Eliminar un cliente\nopcion 3-------Mostrar datos de un cliente\nopcion 4-------Listar todos los clientes\nopcion 5-------Listar clientes preferentes\nopcion 0-------Salir\nseleccione una opcion: "))
-        if op == 0:
-            x = input ("seguro que desea salir? (s/n): ")
-            if x == "s" or x == "S":
-                fin = True
-            elif x == "n" or x == "N":
-                fin = False
-                return fin
-        elif op == 1:
-            registrar_cli(dic_clientes, dic_preferentes)
-        elif op == 2:
-            eliminar_cli(dic_clientes, dic_preferentes)
-        elif op == 3:
-            mostrar_cli(dic_clientes)
-        elif op == 4:
-            listar_cli(dic_clientes)
-        elif op == 5:
-            listar_cli_pref(dic_preferentes)
-dic_clientes = {} 
-dic_preferentes = {}
-fin = False
-while fin == False:
-    fin = menu(fin)
+# def listar_cli(dic_clientes):
+#     limpiar_pantalla()
+#     if not dic_clientes:
+#         print("No hay clientes registrados actualmente.")
+#     else:
+#         print("=== LISTADO DE CLIENTES ===")
+#         for cedula, datos in dic_clientes.items():
+#             pref = "Sí" if datos["preferente"] else "No"
+#             print(f"C.I: {cedula} | Nombre: {datos['nombre']} | Telefono: {datos['telefono']}| Preferente: {pref}")
+#     input("\nPresione Enter para continuar...")
+# def listar_cli_pref(dic_preferentes):
+#     limpiar_pantalla()
+#     if not dic_preferentes:
+#         print("No hay clientes preferentes registrados actualmente.")
+#     else:
+#         print("=== LISTADO DE CLIENTES PREFERENTES ===")
+#         for cedula, datos in dic_preferentes.items():
+#             print(f"C.I: {cedula} | Nombre: {datos['nombre']} | Telefono: {datos['telefono']}")
+#     input("\nPresione Enter para continuar...")
+# def menu(fin):
+#     while fin != True:
+#         limpiar_pantalla()
+#         op = int(input("opcion 1-------Registrar un cliente\nopcion 2-------Eliminar un cliente\nopcion 3-------Mostrar datos de un cliente\nopcion 4-------Listar todos los clientes\nopcion 5-------Listar clientes preferentes\nopcion 0-------Salir\nseleccione una opcion: "))
+#         if op == 0:
+#             x = input ("seguro que desea salir? (s/n): ")
+#             if x == "s" or x == "S":
+#                 fin = True
+#             elif x == "n" or x == "N":
+#                 fin = False
+#                 return fin
+#         elif op == 1:
+#             registrar_cli(dic_clientes, dic_preferentes)
+#         elif op == 2:
+#             eliminar_cli(dic_clientes, dic_preferentes)
+#         elif op == 3:
+#             mostrar_cli(dic_clientes)
+#         elif op == 4:
+#             listar_cli(dic_clientes)
+#         elif op == 5:
+#             listar_cli_pref(dic_preferentes)
+# dic_clientes = {} 
+# dic_preferentes = {}
+# fin = False
+# while fin == False:
+#     fin = menu(fin)
+# EJERCICIO 12 DE BUCLES
+# def contar(frase, letra, contador):
+#     for i in range(0, len(frase)):
+#         if letra in frase[i]:
+#             contador += 1
+#         else:
+#             continue
+#     return contador
+# limpiar_pantalla()
+# frase = input ("introduzca frase: ")
+# letra = input ("introduzca letra: ")
+# contador = 0
+# print (f"la letra '{letra}' aparece {contar(frase, letra, contador)} veces en la frase '{frase}'")
+# EJERCICIO DE SUCESION FIBONACCI
+def definir_limite(lim):
+    definido = False
+    while not definido:
+        lim = int(input("introduzca cuantos numeros de fibonacci desea ver?: "))
+        if lim <= 0:
+            print("el numero debe ser positivo")
+        else:
+            definido = True
+    return lim 
+def fibo(num, lim, numant):
+    lim = definir_limite(lim)
+    for i in range (0, lim):
+        print (f"numeros fibonacci {num}")
+        aux = num
+        num = aux + numant
+        numant = aux
+        
+        
+limpiar_pantalla()
+num = 1
+numant = 1
+lim = 1
+fibo(num,lim,numant)
 
 
-
-
+    
