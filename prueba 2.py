@@ -171,29 +171,58 @@ limpiar_pantalla()
 # contador = 0
 # print (f"la letra '{letra}' aparece {contar(frase, letra, contador)} veces en la frase '{frase}'")
 # EJERCICIO DE SUCESION FIBONACCI
-def definir_limite(lim):
-    definido = False
-    while not definido:
-        lim = int(input("introduzca cuantos numeros de fibonacci desea ver?: "))
-        if lim <= 0:
-            print("el numero debe ser positivo")
-        else:
-            definido = True
-    return lim 
-def fibo(num, lim, numant):
-    lim = definir_limite(lim)
-    for i in range (0, lim):
-        print (f"numeros fibonacci {num}")
-        aux = num
-        num = aux + numant
-        numant = aux
+# def definir_limite(lim):
+#     definido = False
+#     while not definido:
+#         lim = int(input("introduzca cuantos numeros de fibonacci desea ver?: "))
+#         if lim <= 0:
+#             print("el numero debe ser positivo")
+#         else:
+#             definido = True
+#     return lim 
+# def fibo(num, lim, numant):
+#     lim = definir_limite(lim)
+#     for i in range (0, lim):
+#         print (f"numeros fibonacci {num}")
+#         aux = num
+#         num = aux + numant
+#         numant = aux
         
         
-limpiar_pantalla()
-num = 1
-numant = 1
-lim = 1
-fibo(num,lim,numant)
+# limpiar_pantalla()
+# num = 1
+# numant = 1
+# lim = 1
+# fibo(num,lim,numant)
+# EJERCICIO 7 DE PROGRAMACION FUNCIONAL
+def llenar(asig, aprob):
+            for i in range (5):
+                materia = input("nombre de materia: ")
+                materia = materia.upper()
+                nota = int(input(f"nota de {materia}: "))
+                asig[materia] = nota
+                if nota > 9:
+                    aprob[materia] = nota
+def mostrar(asig):
+    input (asig)
+def mostrar_aprob(aprob):
+    input (aprob)
+asig = {}
+aprob = {}
+x = False
+while x == False:
+    limpiar_pantalla()
+    op = int(input("1 para asignar notas a una materia\n2 para mostrar las notas\n3 mostrar materias aprobadas\n0 para salir\nseleccione una opcion: "))
+    if op == 0:
+        x = True
+    elif op == 1:
+        llenar(asig, aprob)
+    elif op == 2:
+        mostrar(asig)
+    elif op == 3:
+        mostrar_aprob(aprob)
+
+
 
 
     
